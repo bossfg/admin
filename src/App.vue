@@ -1,57 +1,44 @@
 <template>
-  <div>
-    <div class="header">
-      <div class="left-text">后台管理系统</div>
-      <div>
-        <el-menu
-          :default-active="activeIndex2"
-          class="el-menu-demo"
-          mode="horizontal"
-          @select="handleSelect"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
-        >
-          <el-menu-item index="1">处理中心</el-menu-item>
-          <el-submenu index="2">
-            <template slot="title">我的工作台</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-3">选项3</el-menu-item>
-            <el-submenu index="2-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="2-4-1">选项1</el-menu-item>
-              <el-menu-item index="2-4-2">选项2</el-menu-item>
-              <el-menu-item index="2-4-3">选项3</el-menu-item>
-            </el-submenu>
-          </el-submenu>
-          <el-menu-item index="3" disabled>消息中心</el-menu-item>
-          <el-menu-item index="4">
-            <a href="https://www.ele.me" target="_blank">订单管理</a>
-          </el-menu-item>
-        </el-menu>
+  <div id="app">
+    <Header />
+    <div class="container">
+      <Left />
+      <div class="content">
+        <el-breadcrumb style="margin: 15px;" separator-class="el-icon-arrow-right">
+          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+          <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        </el-breadcrumb>
+        <router-view />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import "./assets/css/common.css";
+import Header from "./components/header";
+import Left from "./components/left";
 export default {
   name: "App",
-  components: {}
+  components: {
+    Header: Header,
+    Left: Left
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.header {
+#app {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background: #545c64;
-  .left-text {
-    font-size: 20px;
-    // padding: 50px 25px;
+  height: 100vh;
+  flex-direction: column;
+  .container {
+    flex: 1;
+    display: flex;
+    .content {
+      flex: 1;
+    }
   }
 }
 </style>
