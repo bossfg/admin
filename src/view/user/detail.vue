@@ -1,11 +1,14 @@
 <template>
   <div>
-    新增用户
+    个人信息{{id}}
   </div>
 </template>
 
 <script>
 export default {
+props: [
+  'id'
+]
 }
 </script>
 
