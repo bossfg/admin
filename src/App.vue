@@ -7,7 +7,7 @@
         <el-breadcrumb style="margin: 15px;" separator-class="el-icon-arrow-right">
           <el-breadcrumb-item :to="{path: '/adduser'}">用户管理</el-breadcrumb-item>
           <el-breadcrumb-item :to="{path: '/'}">用户列表</el-breadcrumb-item>
-          <el-breadcrumb-item >用户添加</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{path: '/detail/3'}">用户详情</el-breadcrumb-item>
         </el-breadcrumb>
         <div style="width: 1000px">
           <router-view />
@@ -25,7 +25,12 @@ export default {
   components: {
     Header: Header,
     Left: Left
+  },
+  data() {
+    return {
+    }
   }
+  
 };
 </script>
 
