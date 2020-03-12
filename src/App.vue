@@ -9,9 +9,7 @@
           <el-breadcrumb-item :to="{path: '/'}">用户列表</el-breadcrumb-item>
           <el-breadcrumb-item :to="{path: '/detail/3'}">用户详情</el-breadcrumb-item>
         </el-breadcrumb>
-        <div style="width: 1000px">
           <router-view />
-        </div>
       </div>
     </div>
   </div>
@@ -37,12 +35,18 @@ export default {
 <style lang="scss" scoped>
 #app {
   display: flex;
+  text-align: center;
   height: 100vh;
   width: 100vw;
   flex-direction: column;
   .container {
     flex: 1;
+    overflow-x: hidden;
     display: flex;
+    .content {
+      flex: 1;
+      overflow-x: hidden;
+    }
   }
 }
 </style>
