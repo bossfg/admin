@@ -4,6 +4,7 @@
     <el-menu
       :default-active="activeIndex2"
       class="el-menu-demo"
+      router
       mode="horizontal"
       background-color="#545c64"
       text-color="#fff"
@@ -13,7 +14,7 @@
         <template slot="title">我的工作台</template>
         <el-menu-item index="2-1">选项1</el-menu-item>
         <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
+        <el-menu-item index="2-3" route="/login" @click="exit">退出</el-menu-item>
       </el-submenu>
     </el-menu>
   </div>
@@ -26,6 +27,11 @@ export default {
     return {
       activeIndex2: "2"
     };
+  },
+  methods: {
+    exit() {
+      sessionStorage.removeItem('login')
+    }
   }
 };
 </script>
